@@ -363,6 +363,32 @@ h6 {
   transform: rotate(-45deg) translate(5px, -5px);
 }
 
+/* Custom dark text for light background navbars (like blog page) */
+.navbar-dark-text:not(.scrolled) .nav-brand {
+  color: var(--color-primary);
+  text-shadow: none;
+}
+.navbar-dark-text:not(.scrolled) .nav-social a {
+  color: var(--color-primary);
+  background: var(--color-background-alt);
+}
+.navbar-dark-text:not(.scrolled) .nav-link {
+  color: var(--color-text-light);
+}
+.navbar-dark-text:not(.scrolled) .nav-link:hover,
+.navbar-dark-text:not(.scrolled) .nav-link.active {
+  color: var(--color-primary);
+}
+.navbar-dark-text:not(.scrolled) .nav-link::after {
+  background-color: var(--color-primary);
+}
+.navbar-dark-text:not(.scrolled) .nav-toggle {
+  background: var(--color-background-alt);
+}
+.navbar-dark-text:not(.scrolled) .nav-toggle span {
+  background-color: var(--color-text);
+}
+
 /* Mobile Menu */
 .mobile-menu {
   position: fixed;

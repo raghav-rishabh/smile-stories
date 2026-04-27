@@ -39,11 +39,11 @@ function toggleMobileMenu() {
   document.body.style.overflow = isOpen ? 'hidden' : '';
 
 
- if (isOpen) {
+  if (isOpen) {
     navbar.classList.add('scrolled');
     navbar.style.background = 'rgba(255,255,255,0.95)';
-    navbar.style.boxShadow  = '0 8px 32px rgba(0,0,0,0.1)';
-    navbar.style.border     = '1px solid rgba(0,0,0,0.05)';
+    navbar.style.boxShadow = '0 8px 32px rgba(0,0,0,0.1)';
+    navbar.style.border = '1px solid rgba(0,0,0,0.05)';
   } else {
     updateNavbarStyle();
   }
@@ -76,16 +76,16 @@ document.querySelectorAll('.mobile-link').forEach(link => {
 navLinks.forEach(link => {
   link.addEventListener('click', (e) => {
     const href = link.getAttribute('href');
-    
+
     // Only handle hash links
     if (href.startsWith('#')) {
       e.preventDefault();
       const target = document.querySelector(href);
-      
+
       if (target) {
         const navHeight = navbar.offsetHeight;
         const targetPosition = target.offsetTop - navHeight - 20;
-        
+
         window.scrollTo({
           top: targetPosition,
           behavior: 'smooth'
@@ -99,12 +99,12 @@ navLinks.forEach(link => {
 function updateActiveNav() {
   const sections = document.querySelectorAll('section[id]');
   const scrollPosition = window.scrollY + 100;
-  
+
   sections.forEach(section => {
     const sectionTop = section.offsetTop;
     const sectionHeight = section.offsetHeight;
     const sectionId = section.getAttribute('id');
-    
+
     if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
       navLinks.forEach(link => {
         link.classList.remove('active');
@@ -121,10 +121,10 @@ window.addEventListener('scroll', updateActiveNav);
 // ===== FAQ Accordion =====
 faqItems.forEach(item => {
   const question = item.querySelector('.faq-question');
-  
+
   question.addEventListener('click', () => {
     const isActive = item.classList.contains('active');
-    
+
     // Close all other FAQ items
     faqItems.forEach(otherItem => {
       if (otherItem !== item) {
@@ -132,7 +132,7 @@ faqItems.forEach(item => {
         otherItem.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
       }
     });
-    
+
     // Toggle current item
     item.classList.toggle('active');
     question.setAttribute('aria-expanded', !isActive);
@@ -141,8 +141,7 @@ faqItems.forEach(item => {
 
 // ===== Navbar Background on Scroll =====
 function updateNavbarStyle() {
-  const isBlogPage = window.location.pathname.includes('blog');
-  if (window.scrollY > 100 || isBlogPage) {
+  if (window.scrollY > 100) {
     navbar.classList.add('scrolled');
     navbar.style.background = 'rgba(255, 255, 255, 0.95)';
     navbar.style.boxShadow = '0 8px 32px rgba(0, 0, 0, 0.1)';
@@ -163,7 +162,7 @@ function initHeroSlider() {
   const indicators = document.querySelectorAll('.hero-indicator');
   let currentSlide = 0;
   let slideInterval;
-  
+
   function goToSlide(index) {
     slides[currentSlide].classList.remove('active');
     indicators[currentSlide].classList.remove('active');
@@ -171,20 +170,20 @@ function initHeroSlider() {
     slides[currentSlide].classList.add('active');
     indicators[currentSlide].classList.add('active');
   }
-  
+
   function nextSlide() {
     const next = (currentSlide + 1) % slides.length;
     goToSlide(next);
   }
-  
+
   function startSlider() {
     slideInterval = setInterval(nextSlide, 3000);
   }
-  
+
   function stopSlider() {
     clearInterval(slideInterval);
   }
-  
+
   // Click handlers for indicators
   indicators.forEach((indicator, index) => {
     indicator.addEventListener('click', () => {
@@ -193,10 +192,10 @@ function initHeroSlider() {
       startSlider();
     });
   });
-  
+
   // Start auto-sliding
   startSlider();
-  
+
   // Pause on hover (optional for mobile-friendly UX)
   const hero = document.querySelector('.hero');
   hero.addEventListener('mouseenter', stopSlider);
@@ -238,38 +237,38 @@ document.addEventListener('keydown', (e) => {
 // ===== Before/After Slider =====
 function initializeSliders() {
   const sliders = document.querySelectorAll('[data-slider]');
-  
+
   sliders.forEach(slider => {
     const handle = slider.querySelector('.slider-handle');
     const beforeImg = slider.querySelector('.before-img');
     let isDragging = false;
-    
+
     function updateSlider(clientX) {
       const rect = slider.getBoundingClientRect();
       let percentage = ((clientX - rect.left) / rect.width) * 100;
       percentage = Math.max(0, Math.min(100, percentage));
-      
+
       handle.style.left = percentage + '%';
       beforeImg.style.clipPath = `inset(0 ${100 - percentage}% 0 0)`;
     }
-    
+
     function startDrag(e) {
       isDragging = true;
       slider.style.cursor = 'grabbing';
       e.preventDefault();
     }
-    
+
     function stopDrag() {
       isDragging = false;
       slider.style.cursor = 'ew-resize';
     }
-    
+
     function onMove(e) {
       if (!isDragging) return;
       const clientX = e.touches ? e.touches[0].clientX : e.clientX;
       updateSlider(clientX);
     }
-    
+
     // Mouse events
     handle.addEventListener('mousedown', startDrag);
     slider.addEventListener('mousedown', (e) => {
@@ -279,7 +278,7 @@ function initializeSliders() {
     });
     document.addEventListener('mouseup', stopDrag);
     document.addEventListener('mousemove', onMove);
-    
+
     // Touch events
     handle.addEventListener('touchstart', startDrag, { passive: false });
     slider.addEventListener('touchstart', (e) => {
