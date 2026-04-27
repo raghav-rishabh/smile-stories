@@ -141,7 +141,7 @@ faqItems.forEach(item => {
 
 // ===== Navbar Background on Scroll =====
 function updateNavbarStyle() {
-  const isBlogPage = window.location.pathname.includes('blog.html');
+  const isBlogPage = window.location.pathname.includes('blog');
   if (window.scrollY > 100 || isBlogPage) {
     navbar.classList.add('scrolled');
     navbar.style.background = 'rgba(255, 255, 255, 0.95)';
