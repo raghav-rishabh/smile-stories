@@ -169,6 +169,7 @@ function mapPost(s) {
   const imgUrl = resolveImage(s);
   return {
     id:      s._id,
+    slug:    s.slug,
     title:   s.title || 'Untitled',
     excerpt: s.excerpt ? s.excerpt.trim() + '…' : '',
     content: portableTextToHtml(s.body),
@@ -184,6 +185,10 @@ function mapPost(s) {
 let blogPosts      = [];
 let currentPostId  = null;
 let isEditing      = false;
+
+// ===== Pagination =====
+const POSTS_PER_PAGE = 6;
+let visibleCount     = POSTS_PER_PAGE;
 
 // ===== LocalStorage helpers (admin-created / edited posts) =====
 const LS_KEY = 'blogPosts_local';
@@ -305,15 +310,19 @@ function renderBlogGrid() {
     return;
   }
 
-  blogGrid.innerHTML = blogPosts.map(post => `
-    <article class="blog-card" data-id="${escHtml(String(post.id))}">
+  const visiblePosts = blogPosts.slice(0, visibleCount);
+
+  blogGrid.innerHTML = visiblePosts.map(post => `
+    <article class="blog-card" data-slug="${escHtml(String(post.slug || post.id))}">
       <div class="blog-card-image">
         ${post.image
           ? `<img src="${escHtml(post.image)}" alt="${escHtml(post.title)}" loading="lazy" />`
           : post.initial}
       </div>
       <div class="blog-card-content">
-        <div class="blog-card-date">${escHtml(post.date)}</div>
+        <div class="blog-card-meta">
+          <div class="blog-card-date">${escHtml(post.date)}</div>
+        </div>
         <h3 class="blog-card-title">${escHtml(post.title)}</h3>
         <p class="blog-card-excerpt">${escHtml(post.excerpt)}</p>
         <span class="blog-card-link">Read More →</span>
@@ -322,8 +331,17 @@ function renderBlogGrid() {
   `).join('');
 
   document.querySelectorAll('.blog-card').forEach(card => {
-    card.addEventListener('click', () => openPost(card.dataset.id));
+    card.addEventListener('click', () => {
+      window.location.href = '/blog/' + card.dataset.slug;
+    });
   });
+
+  // Show / hide Load More button
+  if (visibleCount < blogPosts.length) {
+    loadMoreBtn.style.display = 'flex';
+  } else {
+    loadMoreBtn.style.display = 'none';
+  }
 }
 
 // ===== Modal =====
@@ -337,6 +355,15 @@ function openPost(id) {
   modalDate.textContent  = post.date;
   modalTitle.textContent = post.title;
   modalContent.innerHTML = post.content;
+
+  const modalImage = document.getElementById('modalImage');
+  if (post.image) {
+    modalImage.innerHTML = `<img src="${post.image}" alt="${post.title}" />`;
+    modalImage.style.display = 'block';
+  } else {
+    modalImage.innerHTML = '';
+    modalImage.style.display = 'none';
+  }
 
   setEditMode(false);
   blogModal.classList.add('active');
@@ -498,11 +525,18 @@ document.querySelectorAll('.mobile-link').forEach(link => {
 
 
 // ===== Event Listeners =====
+const loadMoreBtn = document.getElementById('loadMoreBtn');
+
 closeModal.addEventListener('click', closeModalHandler);
 addBlogBtn.addEventListener('click', addNewPost);
 editBtn.addEventListener('click', () => setEditMode(true));
 saveBtn.addEventListener('click', savePost);
 deleteBtn.addEventListener('click', deletePost);
+
+loadMoreBtn.addEventListener('click', () => {
+  visibleCount += POSTS_PER_PAGE;
+  renderBlogGrid();
+});
 
 blogModal.addEventListener('click', e => { if (e.target === blogModal) closeModalHandler(); });
 document.addEventListener('keydown', e => {
