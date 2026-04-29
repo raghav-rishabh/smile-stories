@@ -1,0 +1,47 @@
+# ===================================================
+# robots.txt — Smile Stories Jalandhar
+# https://www.smilestoriesjalandhar.com/
+# ===================================================
+
+# Allow all well-behaved crawlers
+User-agent: *
+Allow: /
+
+# Block access to any admin or private paths (add more as needed)
+Disallow: /admin/
+Disallow: /private/
+Disallow: /*.json$
+
+# Crawl delay (optional — keeps server load manageable)
+Crawl-delay: 5
+
+# ===================================================
+# Google-specific rules
+# ===================================================
+User-agent: Googlebot
+Allow: /
+Disallow: /admin/
+
+# Allow Google Image bot to index images for local search visibility
+User-agent: Googlebot-Image
+Allow: /images/
+
+# ===================================================
+# Block bad bots (common scrapers / spam crawlers)
+# ===================================================
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+# ===================================================
+# Sitemap location — tells Google where to find it
+# ===================================================
+Sitemap: https://www.smilestoriesjalandhar.com/sitemap.xml

@@ -38,7 +38,12 @@
   -webkit-tap-highlight-color: transparent !important;
 }
 
-a, button, input, select, textarea, div {
+a,
+button,
+input,
+select,
+textarea,
+div {
   -webkit-tap-highlight-color: transparent !important;
 }
 
@@ -368,23 +373,29 @@ h6 {
   color: var(--color-primary);
   text-shadow: none;
 }
+
 .navbar-dark-text:not(.scrolled) .nav-social a {
   color: var(--color-primary);
   background: var(--color-background-alt);
 }
+
 .navbar-dark-text:not(.scrolled) .nav-link {
   color: var(--color-text-light);
 }
+
 .navbar-dark-text:not(.scrolled) .nav-link:hover,
 .navbar-dark-text:not(.scrolled) .nav-link.active {
   color: var(--color-primary);
 }
+
 .navbar-dark-text:not(.scrolled) .nav-link::after {
   background-color: var(--color-primary);
 }
+
 .navbar-dark-text:not(.scrolled) .nav-toggle {
   background: var(--color-background-alt);
 }
+
 .navbar-dark-text:not(.scrolled) .nav-toggle span {
   background-color: var(--color-text);
 }
@@ -1037,13 +1048,13 @@ h6 {
     flex-direction: row;
     justify-content: center;
     flex-wrap: wrap; /* important */
-  /* } */
+/* } */
 /* 
   .appointment-buttons .btn {
     width: auto;
     min-width: 180px;
   }
-/* } */ 
+/* } */
 
 .appointment-info {
   display: flex;
@@ -1112,6 +1123,7 @@ h6 {
   from {
     transform: scale(1);
   }
+
   to {
     transform: scale(1.1);
   }
@@ -1164,6 +1176,7 @@ h6 {
     opacity: 0;
     transform: translateY(40px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -1199,10 +1212,13 @@ h6 {
 }
 
 @keyframes ringPulse {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: scale(1);
     opacity: 1;
   }
+
   50% {
     transform: scale(1.05);
     opacity: 0.8;
@@ -1237,9 +1253,12 @@ h6 {
 }
 
 @keyframes verifiedBounce {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: scale(1);
   }
+
   50% {
     transform: scale(1.15);
   }
