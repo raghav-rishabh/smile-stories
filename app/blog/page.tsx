@@ -77,6 +77,17 @@ export default async function BlogPage() {
       <link rel="stylesheet" href="/style.css" precedence="default" />
       <link rel="stylesheet" href="/blog2.css" precedence="default" />
       
+      <style>{`
+        .blog-card-hover {
+          transition: all 0.3s ease;
+        }
+
+        .blog-card-hover:hover {
+          transform: translateY(-8px);
+          box-shadow: 0 12px 32px rgba(0,0,0,0.12) !important;
+        }
+      `}</style>
+      
       <div style={{ 
         position: 'relative',
         backgroundColor: '#f4fbf9', 
@@ -156,22 +167,12 @@ export default async function BlogPage() {
                       boxShadow: '0 4px 14px rgba(0,0,0,0.06)',
                       border: '1px solid rgba(255,255,255,0.6)',
                       backdropFilter: 'blur(10px)',
-                      transition: 'all 0.3s ease',
                       cursor: 'pointer',
                       display: 'flex',
                       flexDirection: 'column',
                       height: '100%'
                     }}
-                    onMouseEnter={(e) => {
-                      const el = e.currentTarget as HTMLElement
-                      el.style.transform = 'translateY(-8px)'
-                      el.style.boxShadow = '0 12px 32px rgba(0,0,0,0.12)'
-                    }}
-                    onMouseLeave={(e) => {
-                      const el = e.currentTarget as HTMLElement
-                      el.style.transform = 'translateY(0)'
-                      el.style.boxShadow = '0 4px 14px rgba(0,0,0,0.06)'
-                    }}
+                    className="blog-card-hover"
                   >
                     {/* Post Image */}
                     {imageUrl && (
