@@ -350,7 +350,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Disable captcha to keep the UI clean
     formData.append("_captcha", "false");
 
-    fetch("https://formsubmit.co/ajax/rishabhraghav886@gmail.com", {
+    fetch("https://formsubmit.co/ajax/smilestoriesjalandhar@gmail.com", {
       method: "POST",
       headers: {
         'Accept': 'application/json'
