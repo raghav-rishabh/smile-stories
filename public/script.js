@@ -298,3 +298,82 @@ document.addEventListener('DOMContentLoaded', () => {
   initializeSliders();
   initHeroSlider();
 });
+
+// ===== Contact Form =====
+(function () {
+  const form = document.getElementById('contactForm');
+  if (!form) return;
+
+  const successMsg = document.getElementById('formSuccessMsg');
+  const submitBtn = document.getElementById('contactFormSubmit');
+
+  function validateField(input) {
+    let valid = true;
+    if (!input.value.trim()) {
+      valid = false;
+    } else if (input.type === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value.trim())) {
+      valid = false;
+    } else if (input.type === 'tel' && !/^[\d\s\+\-\(\)]{7,15}$/.test(input.value.trim())) {
+      valid = false;
+    }
+    input.classList.toggle('error', !valid);
+    return valid;
+  }
+
+  // Live validation on blur
+  form.querySelectorAll('.form-input').forEach(input => {
+    input.addEventListener('blur', () => validateField(input));
+    input.addEventListener('input', () => {
+      if (input.classList.contains('error')) validateField(input);
+    });
+  });
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const inputs = form.querySelectorAll('.form-input');
+    let allValid = true;
+    inputs.forEach(input => {
+      if (!validateField(input)) allValid = false;
+    });
+
+    if (!allValid) return;
+
+    // Disable button while "submitting"
+    submitBtn.disabled = true;
+    submitBtn.querySelector('.btn-submit-text').textContent = 'Sending\u2026';
+
+    // Send data to FormSubmit via AJAX
+    const formData = new FormData(form);
+    // Adding a subject line for the email
+    formData.append("_subject", "New Contact Form Enquiry - Smile Stories");
+    // Disable captcha to keep the UI clean
+    formData.append("_captcha", "false");
+
+    fetch("https://formsubmit.co/ajax/rishabhraghav886@gmail.com", {
+      method: "POST",
+      headers: {
+        'Accept': 'application/json'
+      },
+      body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+      form.reset();
+      inputs.forEach(input => input.classList.remove('error'));
+      successMsg.style.color = 'var(--color-primary)';
+      successMsg.textContent = '\u2713 Message sent! We\'ll be in touch soon.';
+      submitBtn.disabled = false;
+      submitBtn.querySelector('.btn-submit-text').textContent = 'Send Message';
+
+      setTimeout(() => { successMsg.textContent = ''; }, 5000);
+    })
+    .catch(error => {
+      successMsg.style.color = '#e05353'; // Error color
+      successMsg.textContent = 'Oops! Something went wrong. Please try again.';
+      submitBtn.disabled = false;
+      submitBtn.querySelector('.btn-submit-text').textContent = 'Send Message';
+    });
+  });
+})();
+

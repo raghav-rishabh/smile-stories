@@ -92,7 +92,7 @@
   </script>
 
   <!-- ===================== FAVICON ===================== -->
-  <link rel="icon" type="image/jpeg" href="./images/PHOTO-2026-04-23-16-11-38.jpg">
+  <link rel="icon" type="image/jpeg" href="./images/icon.jpg">
   <link rel="apple-touch-icon" href="./images/PHOTO-2026-04-23-16-11-38.jpg">
 
   <!-- Fonts & Styles -->
@@ -597,6 +597,118 @@
     </div>
   </section>
 
+  <!-- Contact Form Section -->
+  <section class="contact-form-section" id="enquiry">
+    <!-- Decorative blobs -->
+    <div class="cf-blob cf-blob-1" aria-hidden="true"></div>
+    <div class="cf-blob cf-blob-2" aria-hidden="true"></div>
+
+    <div class="container" style="position:relative;z-index:1;">
+      <div class="section-header">
+        <span class="section-label">Get In Touch</span>
+        <h2 class="section-title">Send Us a Message</h2>
+        <div class="cf-accent-rule" aria-hidden="true"></div>
+        <p class="section-desc">Have a question or want to book a consultation? Fill in the form and we'll get back to you.</p>
+      </div>
+
+      <div class="cf-layout">
+
+        <!-- Left: Clinic Info -->
+        <div class="cf-info-panel">
+          <h3 class="cf-info-title">Visit Our Clinic</h3>
+          <p class="cf-info-subtitle">Our friendly team is available Monday–Saturday, 10 AM to 8 PM. Drop by or send us a message!</p>
+
+          <div class="cf-info-items">
+            <div class="cf-info-item">
+              <div class="cf-info-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <div>
+                <strong>Address</strong>
+                <p>21-B Deol Nagar, near Ekta Gas Agency<br>Jalandhar, Punjab 144001</p>
+              </div>
+            </div>
+            <div class="cf-info-item">
+              <div class="cf-info-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.59 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.8A16 16 0 0 0 16 16.09l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              </div>
+              <div>
+                <strong>Phone</strong>
+                <p>+91 62841 14338</p>
+              </div>
+            </div>
+            <div class="cf-info-item">
+              <div class="cf-info-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              </div>
+              <div>
+                <strong>Email</strong>
+                <p>Smilestoriesjalandhar@gmail.com</p>
+              </div>
+            </div>
+            <div class="cf-info-item">
+              <div class="cf-info-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              </div>
+              <div>
+                <strong>Clinic Hours</strong>
+                <p>Mon – Sat: 10:00 AM – 8:00 PM<br>Sunday: Closed</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Form Card -->
+        <div class="cf-form-panel">
+          <form class="contact-form" id="contactForm" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="cf-name" class="form-label">Full Name <span class="form-required">*</span></label>
+                <input type="text" id="cf-name" name="name" class="form-input" placeholder="e.g. Anjali Sharma" required autocomplete="name">
+              </div>
+              <div class="form-group">
+                <label for="cf-email" class="form-label">Email Address <span class="form-required">*</span></label>
+                <input type="email" id="cf-email" name="email" class="form-input" placeholder="you@example.com" required autocomplete="email">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="cf-phone" class="form-label">Phone Number <span class="form-required">*</span></label>
+              <input type="tel" id="cf-phone" name="phone" class="form-input" placeholder="+91 98765 43210" required autocomplete="tel">
+            </div>
+            <div class="form-group">
+              <label for="cf-service" class="form-label">Enquiry Type</label>
+              <select id="cf-service" name="Enquiry Type" class="form-input form-select">
+                <option value="">— Select —</option>
+                <option value="Clear Aligners">Clear Aligners</option>
+                <option value="Metal Braces">Metal Braces</option>
+                <option value="Teeth Whitening">Teeth Whitening</option>
+                <option value="Dental Cleaning">Dental Cleaning</option>
+                <option value="Consultation">General Consultation</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="cf-query" class="form-label">Your Message <span class="form-required">*</span></label>
+              <textarea id="cf-query" name="query" class="form-input form-textarea" placeholder="Tell us how we can help…" required rows="5"></textarea>
+            </div>
+            <div class="form-submit-row">
+              <button type="submit" class="btn btn-form-submit" id="contactFormSubmit">
+                <span class="btn-submit-text">Send Message</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <line x1="22" y1="2" x2="11" y2="13"></line>
+                  <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                </svg>
+              </button>
+              <p class="form-success-msg" id="formSuccessMsg" aria-live="polite"></p>
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
   <!-- https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=1920&h=1080&fit=crop&q=80 -->
 
   <!-- Instagram Profile Section -->
@@ -650,34 +762,6 @@
           </a>
         </div>
       </div>
-      <!--
-      <div class="instagram-profile-highlights">
-        <div class="highlight-item">
-          <div class="highlight-circle">
-            <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=150&h=150&fit=crop&q=80" alt="Transformations">
-          </div>
-          <span class="highlight-label">Results</span>
-        </div>
-        <div class="highlight-item">
-          <div class="highlight-circle">
-            <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=150&h=150&fit=crop&q=80" alt="Tips">
-          </div>
-          <span class="highlight-label">Tips</span>
-        </div>
-        <div class="highlight-item">
-          <div class="highlight-circle">
-            <img src="https://images.unsplash.com/photo-1609840114035-3c981b782dfe?w=150&h=150&fit=crop&q=80" alt="Clinic">
-          </div>
-          <span class="highlight-label">Clinic</span>
-        </div>
-        <div class="highlight-item">
-          <div class="highlight-circle">
-            <img src="https://images.unsplash.com/photo-1598256989800-fe5f95da9787?w=150&h=150&fit=crop&q=80" alt="Reviews">
-          </div>
-          <span class="highlight-label">Reviews</span>
-        </div>
-      </div>
-    </div> -->
   </section>
 
   <!-- Map Section -->
