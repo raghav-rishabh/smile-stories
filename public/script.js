@@ -357,23 +357,23 @@ document.addEventListener('DOMContentLoaded', () => {
       },
       body: formData
     })
-      .then(response => response.json())
-      .then(data => {
-        form.reset();
-        inputs.forEach(input => input.classList.remove('error'));
-        successMsg.style.color = 'var(--color-primary)';
-        successMsg.textContent = '\u2713 Message sent! We\'ll be in touch soon.';
-        submitBtn.disabled = false;
-        submitBtn.querySelector('.btn-submit-text').textContent = 'Send Message';
+    .then(response => response.json())
+    .then(data => {
+      form.reset();
+      inputs.forEach(input => input.classList.remove('error'));
+      successMsg.style.color = 'var(--color-primary)';
+      successMsg.textContent = '\u2713 Message sent! We\'ll be in touch soon.';
+      submitBtn.disabled = false;
+      submitBtn.querySelector('.btn-submit-text').textContent = 'Send Message';
 
-        setTimeout(() => { successMsg.textContent = ''; }, 5000);
-      })
-      .catch(error => {
-        successMsg.style.color = '#e05353'; // Error color
-        successMsg.textContent = 'Oops! Something went wrong. Please try again.';
-        submitBtn.disabled = false;
-        submitBtn.querySelector('.btn-submit-text').textContent = 'Send Message';
-      });
+      setTimeout(() => { successMsg.textContent = ''; }, 5000);
+    })
+    .catch(error => {
+      successMsg.style.color = '#e05353'; // Error color
+      successMsg.textContent = 'Oops! Something went wrong. Please try again.';
+      submitBtn.disabled = false;
+      submitBtn.querySelector('.btn-submit-text').textContent = 'Send Message';
+    });
   });
 })();
 
