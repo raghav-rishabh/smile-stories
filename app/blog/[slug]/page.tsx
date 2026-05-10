@@ -118,8 +118,9 @@ function resolveImage(post: any) {
 }
 
 async function getPost(slug: string) {
+  const decodedSlug = decodeURIComponent(slug)
   const query = encodeURIComponent(`
-    *[_type == "post" && slug.current == "${slug}"][0] {
+    *[_type == "post" && slug.current == "${decodedSlug}"][0] {
       _id,
       title,
       publishedAt,
