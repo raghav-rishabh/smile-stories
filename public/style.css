@@ -752,7 +752,7 @@ h6 {
 .transformation-slider {
   position: relative;
   width: 100%;
-  aspect-ratio: 1;
+  aspect-ratio: 3/4;
   overflow: hidden;
   cursor: ew-resize;
 }
@@ -761,7 +761,7 @@ h6 {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 50%;
   height: 100%;
   object-fit: cover;
 }
@@ -1109,7 +1109,7 @@ h6 {
 .cf-blob-1 {
   width: 420px;
   height: 420px;
-  background: radial-gradient(circle, rgba(26,77,92,0.08) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(26, 77, 92, 0.08) 0%, transparent 70%);
   top: -80px;
   left: -120px;
 }
@@ -1117,7 +1117,7 @@ h6 {
 .cf-blob-2 {
   width: 340px;
   height: 340px;
-  background: radial-gradient(circle, rgba(201,168,108,0.1) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(201, 168, 108, 0.1) 0%, transparent 70%);
   bottom: -60px;
   right: -80px;
 }
@@ -1179,12 +1179,6 @@ h6 {
   align-items: start;
 }
 
-/* Left info panel — hidden on mobile, shown on desktop */
-.cf-info-panel {
-  display: none;
-  padding: 0.5rem 0;
-}
-
 @media (min-width: 768px) {
   .cf-layout {
     grid-template-columns: 38% 1fr;
@@ -1194,6 +1188,12 @@ h6 {
   .cf-info-panel {
     display: block;
   }
+}
+
+/* Left info panel */
+.cf-info-panel {
+  display: none;
+  padding: 0.5rem 0;
 }
 
 .cf-info-title {
