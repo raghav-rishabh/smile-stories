@@ -1,6 +1,6 @@
 # ===================================================
 # robots.txt — Smile Stories Jalandhar
-# https://www.smilestoriesjalandhar.com/
+# https://www.smilestoriesind.com/
 # ===================================================
 
 # Allow all well-behaved crawlers
@@ -44,4 +44,4 @@ Disallow: /
 # ===================================================
 # Sitemap location — tells Google where to find it
 # ===================================================
-Sitemap: https://www.smilestoriesjalandhar.com/sitemap.xml
+Sitemap: https://www.smilestoriesind.com/sitemap.xml

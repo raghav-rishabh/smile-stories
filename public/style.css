@@ -1179,16 +1179,21 @@ h6 {
   align-items: start;
 }
 
+/* Left info panel — hidden on mobile, shown on desktop */
+.cf-info-panel {
+  display: none;
+  padding: 0.5rem 0;
+}
+
 @media (min-width: 768px) {
   .cf-layout {
     grid-template-columns: 38% 1fr;
     gap: 3rem;
   }
-}
 
-/* Left info panel */
-.cf-info-panel {
-  padding: 0.5rem 0;
+  .cf-info-panel {
+    display: block;
+  }
 }
 
 .cf-info-title {
