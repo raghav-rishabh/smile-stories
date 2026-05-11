@@ -1,9 +1,5 @@
-// import { redirect } from "next/navigation"
-
-// export default function Home() {
-//   redirect("/index.html")
-// }
+import { redirect } from "next/navigation"
 
 export default function Home() {
-  return null // or just an empty component
+  redirect("/index.html")
 }
