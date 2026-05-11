@@ -7,7 +7,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const blogUrls = posts.map((post: any) => ({
     url: `https://www.smilestoriesind.com/blog/${post.slug.current}`,
     lastModified: new Date(post._updatedAt),
-    changeFrequency: 'yearly' as const,
+    changeFrequency: 'weekly' as const,
     priority: 0.6,
   }))
 
