@@ -7,9 +7,8 @@ const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'v0 App',
-  description: 'Created with v0',
-  generator: 'v0.app',
+  title: 'Smile Stories | Best Dentist & Orthodontist in Jalandhar, Punjab',
+  description: "Jalandhar's trusted dental clinic — clear aligners, braces, teeth whitening & more. Book instantly on WhatsApp or Instagram.",
   icons: {
     icon: [
       {
