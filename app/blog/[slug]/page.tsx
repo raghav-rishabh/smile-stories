@@ -205,7 +205,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
 
         <div style={{ maxWidth: '840px', width: '100%', margin: '0 auto', position: 'relative', zIndex: 1, flexGrow: 1, paddingBottom: '5rem' }}>
-          <a href="/blog" className="blog-card-link" style={{ 
+          <a href="/blog.html" className="blog-card-link" style={{ 
             display: 'inline-flex', alignItems: 'center', gap: '0.5rem', marginBottom: '2.5rem', 
             color: 'var(--color-primary)', textDecoration: 'none', fontWeight: 600,
             background: 'rgba(255,255,255,0.8)', padding: '0.6rem 1.25rem', borderRadius: '100px',
