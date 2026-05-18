@@ -3,10 +3,14 @@ import BlogPageClient from './BlogPageClient'
 import './blog-page.css'
 
 export const metadata: Metadata = {
-  title: 'Smile Stories Blog - Orthodontic Insights & Dental Tips in Jalandhar',
+  title: 'Our Dental Blog - Smile Stories | Jalandhar',
   description:
-    'Expert orthodontic blog by Dr. Pallavi Garg in Jalandhar. Learn about clear aligners, braces care, teeth whitening tips, and smile transformations. Read dental health guides.',
+    'Expert orthodontic blog by Dr. Pallavi Garg in Jalandhar. Learn about clear aligners, braces care, teeth whitening tips, and smile transformations.',
   keywords: [
+    'dental blogs',
+    'blogs',
+    'braces',
+    'aligners',
     'orthodontist blog Jalandhar',
     'clear aligners',
     'braces care',

@@ -195,13 +195,6 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         {/* Dot Grid Overlay */}
         <div style={{ position: 'absolute', inset: 0, backgroundImage: 'radial-gradient(circle, rgba(0,0,0,0.04) 1px, transparent 1px)', backgroundSize: '32px 32px', zIndex: -1, pointerEvents: 'none' }}></div>
 
-        {/* Floating Orbs (from blog2.css) */}
-        <div className="blog-orb blog-orb--1" style={{ position: 'fixed', zIndex: -1 }}>🦷</div>
-        <div className="blog-orb blog-orb--2" style={{ position: 'fixed', zIndex: -1 }}>✨</div>
-        <div className="blog-orb blog-orb--3" style={{ position: 'fixed', zIndex: -1 }}>😁</div>
-        <div className="blog-orb blog-orb--4" style={{ position: 'fixed', zIndex: -1 }}>🪥</div>
-        <div className="blog-orb blog-orb--5" style={{ position: 'fixed', zIndex: -1 }}>💎</div>
-
 
 
         <div style={{ maxWidth: '840px', width: '100%', margin: '0 auto', position: 'relative', zIndex: 1, flexGrow: 1, paddingBottom: '5rem' }}>
