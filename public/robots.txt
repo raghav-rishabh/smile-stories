@@ -12,9 +12,6 @@ Disallow: /admin/
 Disallow: /private/
 Disallow: /*.json$
 
-# Crawl delay (optional — keeps server load manageable)
-Crawl-delay: 5
-
 # ===================================================
 # Google-specific rules
 # ===================================================
