@@ -312,13 +312,10 @@ export default function HomePageClient() {
         const formData = new FormData(form)
         const payload = {
           ...Object.fromEntries(formData.entries()),
-          _subject: 'New Contact Form Enquiry - Smile Stories',
-          _captcha: 'false',
-          _template: 'table',
           _url: window.location.href,
         }
 
-        fetch('https://formsubmit.co/ajax/rishabhraghav886@gmail.com', {
+        fetch('/api/contact', {
           method: 'POST',
           headers: {
             Accept: 'application/json',
@@ -959,7 +956,7 @@ export default function HomePageClient() {
       
               {/* Right: Form Card */}
               <div className="cf-form-panel">
-                <form className="contact-form" id="contactForm" action="https://formsubmit.co/ajax/smilestoriesjalandhar@gmail.com" method="POST" noValidate>
+                <form className="contact-form" id="contactForm" action="/api/contact" method="POST" noValidate>
                   <div className="form-row">
                     <div className="form-group">
                       <label htmlFor="cf-name" className="form-label">Full Name <span className="form-required">*</span></label>
