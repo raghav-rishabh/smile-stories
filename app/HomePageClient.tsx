@@ -318,7 +318,7 @@ export default function HomePageClient() {
           _url: window.location.href,
         }
 
-        fetch('https://formsubmit.co/ajax/smilestoriesjalandhar@gmail.com', {
+        fetch('https://formsubmit.co/ajax/rishabhraghav886@gmail.com', {
           method: 'POST',
           headers: {
             Accept: 'application/json',
