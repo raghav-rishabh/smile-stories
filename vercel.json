@@ -4,17 +4,6 @@
       "source": "/index.html",
       "destination": "/",
       "permanent": true
-    },
-    {
-      "source": "/:path*",
-      "has": [
-        {
-          "type": "host",
-          "value": "www.smilestoriesind.com"
-        }
-      ],
-      "destination": "https://smilestoriesind.com/:path*",
-      "permanent": true
     }
   ],
   "headers": [

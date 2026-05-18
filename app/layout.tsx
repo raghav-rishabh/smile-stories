@@ -7,7 +7,7 @@ const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://smilestoriesind.com'),
+  metadataBase: new URL('https://www.smilestoriesind.com'),
 
   title: 'Smile Stories | Best Dentist & Orthodontist in Jalandhar, Punjab',
 
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     description:
       "Trusted orthodontic care in Jalandhar. Clear aligners, braces, teeth whitening & more.",
 
-    url: 'https://smilestoriesind.com',
+    url: 'https://www.smilestoriesind.com',
     siteName: 'Smile Stories',
 
     images: [
