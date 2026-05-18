@@ -274,6 +274,11 @@ export default function HomePageClient() {
       const inputs = Array.from(form.querySelectorAll<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>('.form-input'))
 
       function validateField(input: HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement) {
+        // Skip validation for optional fields (no required attribute)
+        if (!input.hasAttribute('required')) {
+          input.classList.remove('error')
+          return true
+        }
         let valid = true
         if (!input.value.trim()) {
           valid = false
@@ -311,11 +316,18 @@ export default function HomePageClient() {
 
         const formData = new FormData(form)
         const payload = {
-          ...Object.fromEntries(formData.entries()),
-          _url: window.location.href,
+          access_key: 'd5496826-646e-43f9-8c29-bae6f9731ad3',
+          subject: 'New Contact Form Enquiry - Smile Stories',
+          from_name: 'Smile Stories Website',
+          name: formData.get('name'),
+          phone: formData.get('phone'),
+          email: formData.get('email'),
+          'Enquiry Type': formData.get('Enquiry Type') || 'Not specified',
+          message: formData.get('query'),
+          botcheck: '',
         }
 
-        fetch('/api/contact', {
+        fetch('https://api.web3forms.com/submit', {
           method: 'POST',
           headers: {
             Accept: 'application/json',
@@ -324,17 +336,10 @@ export default function HomePageClient() {
           body: JSON.stringify(payload),
         })
           .then(async (response) => {
-            const text = await response.text()
-            let data: { message?: string; success?: string | boolean } = {}
+            const data: { message?: string; success?: boolean } = await response.json()
 
-            try {
-              data = text ? JSON.parse(text) : {}
-            } catch {
-              throw new Error(text || 'FormSubmit returned a non-JSON response.')
-            }
-
-            if (!response.ok || data.success === false) {
-              throw new Error(data.message || 'FormSubmit rejected the submission.')
+            if (!response.ok || !data.success) {
+              throw new Error(data.message || 'Submission failed. Please try again.')
             }
 
             return data
@@ -349,7 +354,7 @@ export default function HomePageClient() {
             setTimeout(() => { successMsg.textContent = '' }, 5000)
           })
           .catch((error) => {
-            console.error('FormSubmit error:', error)
+            console.error('Web3Forms error:', error)
             successMsg.style.color = '#e05353'
             successMsg.textContent = error instanceof Error && error.message
               ? error.message
@@ -956,7 +961,7 @@ export default function HomePageClient() {
       
               {/* Right: Form Card */}
               <div className="cf-form-panel">
-                <form className="contact-form" id="contactForm" action="/api/contact" method="POST" noValidate>
+                <form className="contact-form" id="contactForm" action="https://formsubmit.co/ajax/smilestoriesjalandhar@gmail.com" method="POST" noValidate>
                   <div className="form-row">
                     <div className="form-group">
                       <label htmlFor="cf-name" className="form-label">Full Name <span className="form-required">*</span></label>
