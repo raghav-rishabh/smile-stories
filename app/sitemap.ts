@@ -5,7 +5,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const posts = await client.fetch(`*[_type == "post"]{ slug, _updatedAt }`)
 
   const blogUrls = posts.map((post: any) => ({
-    url: `https://www.smilestoriesind.com/blog/${post.slug.current}`,
+    url: `https://smilestoriesind.com/blog/${post.slug.current}`,
     lastModified: new Date(post._updatedAt),
     changeFrequency: 'yearly' as const,
     priority: 0.6,
@@ -13,13 +13,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   return [
     {
-      url: 'https://www.smilestoriesind.com',
+      url: 'https://smilestoriesind.com',
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 1.0,
     },
     {
-      url: 'https://www.smilestoriesind.com/blog',
+      url: 'https://smilestoriesind.com/blog',
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.8,

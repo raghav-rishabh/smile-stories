@@ -10,11 +10,32 @@
       "has": [
         {
           "type": "host",
-          "value": "smilestoriesind.com"
+          "value": "www.smilestoriesind.com"
         }
       ],
-      "destination": "https://www.smilestoriesind.com/:path*",
+      "destination": "https://smilestoriesind.com/:path*",
       "permanent": true
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "missing": [
+        {
+          "type": "host",
+          "value": "smilestoriesind.com"
+        },
+        {
+          "type": "host",
+          "value": "www.smilestoriesind.com"
+        }
+      ],
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ]
     }
   ]
 }
