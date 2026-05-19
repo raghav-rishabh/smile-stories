@@ -453,8 +453,12 @@ export default function BlogPageClient() {
           </div>
 
           <div className="footer-bottom">
-            <p>&copy; 2026 Smile Stories. All rights reserved.</p>
-          </div>
+  <p>&copy; 2026 Smile Stories. All rights reserved.</p>
+  <p className="footer-dev">
+    Designed & Developed by <a href="https://www.instagram.com/rishabh._digital/" target="_blank" rel="noopener">Rishabh Raghav.</a>
+  </p>
+</div>
+          
         </div>
       </footer>
     </div>

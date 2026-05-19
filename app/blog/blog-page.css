@@ -705,3 +705,25 @@
     padding: 1.35rem;
   }
 }
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+.footer-dev {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.4);
+  margin-top: 0.25rem;
+}
+
+.footer-dev a {
+  color: rgba(255, 255, 255, 1);
+  text-decoration: underline;
+  transition: color 0.2s;
+}
