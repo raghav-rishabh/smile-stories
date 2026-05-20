@@ -10,6 +10,16 @@ const nextConfig = {
     buildActivity: false,
     appIsrStatus: false,
   },
+  async redirects() {
+    return [
+      {
+        source: '/:path*',
+        has: [{ type: 'host', value: 'smilestoriesind.com' }],
+        destination: 'https://www.smilestoriesind.com/:path*',
+        permanent: true,
+      },
+    ]
+  },
 }
 
 export default nextConfig
