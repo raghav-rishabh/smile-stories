@@ -10,7 +10,6 @@ Allow: /
 # Block access to any admin or private paths (add more as needed)
 Disallow: /admin/
 Disallow: /private/
-Disallow: /*.json$
 
 # ===================================================
 # Google-specific rules
