@@ -1,7 +1,56 @@
 import type { Metadata, Viewport } from 'next'
 import HomePageClient from './HomePageClient'
 
-const dentistSchema = "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"Dentist\",\n    \"name\": \"Smile Stories\",\n    \"description\": \"Premium orthodontic and dental care clinic in Jalandhar. Specialising in clear aligners, metal braces, teeth whitening, and dental cleaning.\",\n    \"url\": \"https://www.smilestoriesind.com/\",\n    \"telephone\": \"+916284114338\",\n    \"email\": \"Smilestoriesjalandhar@gmail.com\",\n    \"image\": \"https://www.smilestoriesind.com/images/og-image.jpg\",\n    \"priceRange\": \"₹₹\",\n    \"address\": {\n      \"@type\": \"PostalAddress\",\n      \"streetAddress\": \"21-B Deol Nagar\",\n      \"addressLocality\": \"Jalandhar\",\n      \"addressRegion\": \"Punjab\",\n      \"postalCode\": \"144001\",\n      \"addressCountry\": \"IN\"\n    },\n    \"geo\": {\n      \"@type\": \"GeoCoordinates\",\n      \"latitude\": 31.3260,\n      \"longitude\": 75.5762\n    },\n    \"sameAs\": [\n      \"https://www.instagram.com/dr.pallavigarg\",\n      \"https://wa.me/916284114338\"\n    ],\n    \"openingHoursSpecification\": [\n      {\n        \"@type\": \"OpeningHoursSpecification\",\n        \"dayOfWeek\": [\"Monday\",\"Tuesday\",\"Wednesday\",\"Thursday\",\"Friday\",\"Saturday\"],\n        \"opens\": \"10:00\",\n        \"closes\": \"19:00\"\n      }\n    ],\n    \"hasMap\": \"https://maps.google.com/?q=21-B+Deol+Nagar+Jalandhar+Punjab\",\n    \"medicalSpecialty\": \"Dentistry\",\n    \"availableService\": [\n      { \"@type\": \"MedicalProcedure\", \"name\": \"Clear Aligners\" },\n      { \"@type\": \"MedicalProcedure\", \"name\": \"Metal Braces\" },\n      { \"@type\": \"MedicalProcedure\", \"name\": \"Teeth Whitening\" },\n      { \"@type\": \"MedicalProcedure\", \"name\": \"Dental Cleaning\" },\n      { \"@type\": \"MedicalProcedure\", \"name\": \"Orthodontic Consultation\" }\n    ]\n  }"
+const dentistSchema = {
+  "@context": "https://schema.org",
+  "@type": ["Dentist","Orthodontist"],
+  "@id": "https://www.smilestoriesind.com/#dentist",
+  "name": "Smile Stories",
+  "description": "Premium orthodontic and dental care clinic in Jalandhar. Specialising in clear aligners, metal braces, teeth whitening, and dental cleaning.",
+  "url": "https://www.smilestoriesind.com/",
+  "telephone": "+916284114338",
+  "email": "Smilestoriesjalandhar@gmail.com",
+  "image": "https://www.smilestoriesind.com/images/og.png",
+  "priceRange": "₹₹",
+  "areaServed": {
+  "@type": "City",
+  "name": "Jalandhar"
+},
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "21-B Deol Nagar",
+    "addressLocality": "Jalandhar",
+    "addressRegion": "Punjab",
+    "postalCode": "144001",
+    "addressCountry": "IN"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 31.3260,
+    "longitude": 75.5762
+  },
+  "sameAs": [
+    "https://www.instagram.com/dr.pallavigarg",
+    "https://wa.me/916284114338"
+  ],
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+      "opens": "10:00",
+      "closes": "20:00"
+    }
+  ],
+  "hasMap": "https://maps.google.com/?q=21-B+Deol+Nagar+Jalandhar+Punjab",
+  "medicalSpecialty": "Dentistry",
+  "availableService": [
+    { "@type": "MedicalProcedure", "name": "Clear Aligners" },
+    { "@type": "MedicalProcedure", "name": "Metal Braces" },
+    { "@type": "MedicalProcedure", "name": "Teeth Whitening" },
+    { "@type": "MedicalProcedure", "name": "Dental Cleaning" },
+    { "@type": "MedicalProcedure", "name": "Orthodontic Consultation" }
+  ]
+}
 
 export const metadata: Metadata = {
   title: 'Smile Stories | Best Dentist & Orthodontist in Jalandhar, Punjab',
@@ -75,7 +124,7 @@ export const viewport: Viewport = {
 export default function Home() {
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: dentistSchema }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(dentistSchema) }} />
       <HomePageClient />
     </>
   )
