@@ -204,7 +204,7 @@ async function fetchSanityPosts() {
       title,
       publishedAt,
       "slug": slug.current,
-      "excerpt": pt::text(body)[0..200],
+      "excerpt": pt::text(body)[0..300],
       "mainImage": mainImage { alt, asset->{ _ref, url } },
       body[] {
         ...,

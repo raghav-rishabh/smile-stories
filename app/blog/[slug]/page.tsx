@@ -1,10 +1,13 @@
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 
+export const revalidate = 3600
+
 const SANITY_PROJECT_ID = '3igm80nn'
 const SANITY_DATASET = 'production'
 const SANITY_API_VER = 'v2023-05-03'
 const SANITY_CDN = `https://${SANITY_PROJECT_ID}.apicdn.sanity.io/${SANITY_API_VER}/data/query/${SANITY_DATASET}`
+const SITE_URL = 'https://www.smilestoriesind.com'
 
 function escHtml(str: string) {
   return String(str)
@@ -124,7 +127,7 @@ async function getPost(slug: string) {
       _id,
       title,
       publishedAt,
-      "excerpt": pt::text(body)[0..200],
+      "excerpt": pt::text(body)[0..300],
       "mainImage": mainImage { alt, asset->{ _ref, url } },
       body[] {
         ...,
@@ -138,25 +141,44 @@ async function getPost(slug: string) {
   return result
 }
 
-export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+export async function generateMetadata(
+  { params }: { params: Promise<{ slug: string }> }
+): Promise<Metadata> {
+
   const { slug } = await params
   const post = await getPost(slug)
-  
+
   if (!post) {
     return {
-      title: 'Post Not Found',
+      title: 'Post Not Found'
     }
   }
 
   const imageUrl = resolveImage(post)
-  
+  const canonicalUrl = `${SITE_URL}/blog/${slug}`
+
   return {
     title: `${post.title} | Smile Stories`,
     description: post.excerpt,
+
+    alternates: {
+      canonical: canonicalUrl
+    },
+
     openGraph: {
       title: post.title,
       description: post.excerpt,
-      images: imageUrl ? [imageUrl] : [],
+      url: canonicalUrl,
+      type: 'article',
+      publishedTime: post.publishedAt,
+      images: imageUrl ? [imageUrl] : []
+    },
+
+    twitter: {
+      card: 'summary_large_image',
+      title: post.title,
+      description: post.excerpt,
+      images: imageUrl ? [imageUrl] : []
     }
   }
 }
@@ -173,8 +195,40 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   const dateFormatted = formatDate(post.publishedAt)
   const imageUrl = resolveImage(post)
 
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: post.title,
+  description: post.excerpt,
+  image: imageUrl,
+  datePublished: post.publishedAt,
+  dateModified: post.publishedAt,
+
+  author: {
+    '@type': 'Organization',
+    name: 'Smile Stories'
+  },
+
+  publisher: {
+    '@type': 'Organization',
+    name: 'Smile Stories'
+  },
+
+  mainEntityOfPage: {
+    '@type': 'WebPage',
+    '@id': `${SITE_URL}/blog/${slug}`
+  }
+}
+
+
   return (
     <>
+    <script
+  type="application/ld+json"
+  dangerouslySetInnerHTML={{
+    __html: JSON.stringify(schema)
+  }}
+/>
       <link rel="stylesheet" href="/style.css" precedence="default" />
       <link rel="stylesheet" href="/blog2.css" precedence="default" />
       <div style={{ 
