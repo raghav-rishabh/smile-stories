@@ -961,7 +961,7 @@ export default function HomePageClient() {
       
               {/* Right: Form Card */}
               <div className="cf-form-panel">
-                <form className="contact-form" id="contactForm" action="https://formsubmit.co/ajax/smilestoriesjalandhar@gmail.com" method="POST" noValidate>
+                <form className="contact-form" id="contactForm" action="https://formsubmit.co/ajax/smilestoriesjalandhar@gmail.com" method="POST">
                   <div className="form-row">
                     <div className="form-group">
                       <label htmlFor="cf-name" className="form-label">Full Name <span className="form-required">*</span></label>
